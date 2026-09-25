@@ -1,533 +1,514 @@
-(() => {
-"use strict";
-
-const STORAGE = {
-  progress: "n3_progress",
-  mastery: "n3_mastery",
-  wrong: "n3_wrong_answers",
-  review: "n3_review_schedule",
-  history: "n3_question_history",
-  examiner: "n3_examiner_history",
-  cards: "n3_saved_cards",
-  settings: "n3_settings"
+/* JLPT N3 日語水平考官 V2.2
+   - 跨模式／跨輪次避免短期重複
+   - 同一概念可重溫，但優先使用不同題目
+   - 到期複習可優先抽取 due 題
+   - 保留原有 localStorage 資料
+   - 純前端、無遠端 AI
+*/
+const S = {
+  p:"n3_progress", m:"n3_mastery", w:"n3_wrong_answers",
+  r:"n3_review_schedule", h:"n3_question_history",
+  e:"n3_examiner_history", c:"n3_saved_cards"
 };
 
-const $ = (s) => document.querySelector(s);
-const $$ = (s) => [...document.querySelectorAll(s)];
+const get = (k,d) => {
+  try { return JSON.parse(localStorage.getItem(k)) ?? d; }
+  catch { return d; }
+};
+const put = (k,v) => localStorage.setItem(k, JSON.stringify(v));
 
-function read(key, fallback) {
-  try {
-    const value = localStorage.getItem(key);
-    return value === null ? fallback : JSON.parse(value);
-  } catch {
-    return fallback;
-  }
-}
-function write(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
-}
-
-let P = read(STORAGE.progress, {
-  ability: 50, answered: 0, correct: 0, cat: {}, concept: {}, confusions: {}
-});
-let M = read(STORAGE.mastery, {});
-let W = read(STORAGE.wrong, {});
-let R = read(STORAGE.review, {});
-let H = read(STORAGE.history, []);
-let E = read(STORAGE.examiner, []);
-let C = read(STORAGE.cards, {});
-let settings = read(STORAGE.settings, { sound: false });
-
+let P = get(S.p,{ability:50,answered:0,correct:0,cat:{},concept:{},confusions:{}});
+let M = get(S.m,{});
+let W = get(S.w,{});
+let R = get(S.r,{});
+let H = get(S.h,[]);
+let E = get(S.e,[]);
+let C = get(S.c,{});
 let Q = [];
 let mode = "examiner";
 let round = [];
-let index = 0;
-let current = null;
+let ri = 0;
+let cur = null;
 let results = [];
-let beforeAbility = P.ability;
+let before = 50;
 
-function saveAll() {
-  write(STORAGE.progress, P);
-  write(STORAGE.mastery, M);
-  write(STORAGE.wrong, W);
-  write(STORAGE.review, R);
-  write(STORAGE.history, H);
-  write(STORAGE.examiner, E);
-  write(STORAGE.cards, C);
-  write(STORAGE.settings, settings);
+const $ = x => document.querySelector(x);
+const esc = x => String(x ?? "").replace(/[&<>"']/g,a=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+}[a]));
+
+function save(){
+  Object.entries({
+    [S.p]:P,[S.m]:M,[S.w]:W,[S.r]:R,[S.h]:H,
+    [S.e]:E,[S.c]:C
+  }).forEach(([k,v])=>put(k,v));
 }
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  }[ch]));
+function band(n){
+  return n<40?"N4 基礎仍需鞏固":
+    n<55?"N3 入門階段":
+    n<70?"N3 基礎":
+    n<80?"N3 中段":
+    n<90?"N3 中後段":"N3 高熟練度";
 }
 
-function band(score) {
-  if (score < 40) return "N4 基礎仍需鞏固";
-  if (score < 55) return "N3 入門階段";
-  if (score < 70) return "N3 基礎";
-  if (score < 80) return "N3 中段";
-  if (score < 90) return "N3 中後段";
-  return "N3 高熟練度";
+function view(id){
+  document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));
+  const el=$("#"+id);
+  if(el) el.classList.add("active");
+  scrollTo(0,0);
 }
 
-function showView(id) {
-  $$(".view").forEach(v => v.classList.remove("active"));
-  const target = $("#" + id);
-  if (target) target.classList.add("active");
-  window.scrollTo(0, 0);
+function mastery(id){
+  return M[id] ?? (M[id]={
+    a:0,c:0,
+    d:{辨認:.5,意思:.5,辨析:.5,語境:.5,主動使用:.2},
+    s:"new"
+  });
 }
 
-function mastery(id) {
-  if (!M[id]) {
-    M[id] = {
-      attempts: 0,
-      correct: 0,
-      dimensions: { 辨認: .5, 意思: .5, 辨析: .5, 語境: .5, 主動使用: .2 },
-      state: "new"
-    };
+function weakness(q){
+  const m=M[q.id];
+  const c=P.concept?.[q.conceptGroup];
+  let v=.12;
+
+  if(m){
+    v += (1-(m.d.辨析+m.d.語境+m.d.辨認)/3)*.45;
+    if(m.s==="unstable") v += .12;
+    if(m.s==="learning") v += .08;
   }
-  return M[id];
+  if(c?.a) v += (1-c.c/c.a)*.30;
+  if(R[q.id] && new Date(R[q.id])<=new Date()) v += .45;
+  if(W[q.id]) v += .20;
+  return v;
 }
 
-function weakness(q) {
-  const m = M[q.id];
-  const concept = P.concept[q.conceptGroup];
-  let score = .15;
-  if (m) {
-    const d = m.dimensions;
-    score += (1 - (d.辨認 + d.辨析 + d.語境) / 3) * .5;
+/* 最近做過的題目：
+   H 是跨模式共用，所以普通／考官／每日／複習都會看到同一份歷史。
+*/
+function recentIds(limit=24){
+  return new Set(
+    H.slice(0,limit)
+      .map(x=>x.id)
+      .filter(Boolean)
+  );
+}
+
+function recentConcepts(limit=8){
+  const s = new Set();
+  for(const x of H.slice(0,limit)){
+    const q = Q.find(q=>q.id===x.id);
+    if(q?.conceptGroup) s.add(q.conceptGroup);
   }
-  if (concept?.attempts) score += (1 - concept.correct / concept.attempts) * .35;
-  if (R[q.id] && new Date(R[q.id]) <= new Date()) score += .4;
-  if (W[q.id]) score += .25;
-  return score;
+  return s;
 }
 
-function validQuestions() {
-  return Q.filter(q => q && q.validity !== "ambiguous");
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
 }
 
-function chooseQuestions() {
-  const pool = validQuestions();
-  if (pool.length < 10) throw new Error(`有效題目只有 ${pool.length} 題，至少需要 10 題。`);
+function scoreCandidate(q,target,recent,used,usedConcepts){
+  let s = weakness(q);
+  s -= Math.abs((Number(q.difficulty)||3)-target)*.18;
 
-  const target = Math.max(1, Math.min(5, Math.round(P.ability / 20) + 1));
-  const selected = [];
+  if(recent.has(q.id)) s -= 3.0;
+  if(used.has(q.id)) s -= 100;
+  if(usedConcepts.has(q.conceptGroup)) s -= .18;
+
+  // 新題優先，但唔會永遠避開弱項。
+  if(!M[q.id]) s += .10;
+
+  // 只在普通／考官／每日模式中鼓勵變化；
+  // review 模式仍以到期題為主。
+  if(mode!=="review" && R[q.id] && new Date(R[q.id])<=new Date()) s += .20;
+
+  return s + Math.random()*.12;
+}
+
+function choose(){
+  const valid = Q.filter(q=>q.validity!=="ambiguous");
+  if(valid.length<10) return shuffle(valid);
+
+  const target = Math.max(1,Math.min(5,Math.round(P.ability/20)+1));
+  const recent = recentIds(24);
   const used = new Set();
+  const usedConcepts = new Set();
+  const out = [];
 
-  const pickFrom = (candidates) => {
-    const sorted = [...candidates].sort((a, b) => {
-      const sa = weakness(a) - Math.abs(a.difficulty - target) * .15;
-      const sb = weakness(b) - Math.abs(b.difficulty - target) * .15;
-      return sb - sa;
-    });
-    return sorted[0];
-  };
+  // 到期複習：只在有足夠題目時優先使用 due pool。
+  const due = valid.filter(q=>R[q.id] && new Date(R[q.id])<=new Date());
 
-  while (selected.length < 10) {
-    let candidates = pool.filter(q => !used.has(q.id));
+  for(let n=0;n<10;n++){
+    let pool = valid.filter(q=>!used.has(q.id));
 
-    if (mode === "review") {
-      const due = candidates.filter(q => R[q.id] && new Date(R[q.id]) <= new Date());
-      if (due.length) candidates = due;
+    if(mode==="review" && due.length){
+      const duePool = pool.filter(q=>due.some(d=>d.id===q.id));
+      if(duePool.length) pool=duePool;
     }
 
-    if (mode === "daily") {
-      const n = selected.length;
-      if (n < 3) {
-        const wrong = candidates.filter(q => W[q.id]);
-        if (wrong.length) candidates = wrong;
-      } else if (n < 6) {
-        const weak = candidates.filter(q => weakness(q) >= .55);
-        if (weak.length) candidates = weak;
-      } else if (n < 9) {
-        const fresh = candidates.filter(q => !M[q.id]);
-        if (fresh.length) candidates = fresh;
-      } else {
-        candidates = candidates.filter(q => q.difficulty >= 4);
-        if (!candidates.length) candidates = pool.filter(q => !used.has(q.id));
-      }
-    }
+    // 第一優先：未在最近 24 題出現過。
+    let fresh = pool.filter(q=>!recent.has(q.id));
+    if(fresh.length >= (10-n)) pool=fresh;
 
-    if (!candidates.length) break;
+    // 避免同一 concept 連續堆疊，但唔會為此犧牲到期／弱項題。
+    const varied = pool.filter(q=>!usedConcepts.has(q.conceptGroup));
+    if(varied.length) pool=varied;
 
-    const recentCats = selected.slice(-3).map(q => q.category);
-    let q = pickFrom(candidates);
-    const diversified = candidates.filter(x =>
-      !(recentCats.length === 3 && recentCats.every(c => c === x.category))
-    );
-    if (diversified.length) q = pickFrom(diversified);
+    // 類別避免連續超過 3 題。
+    const lastCats=out.slice(-3).map(q=>q.category);
+    const catVaried=pool.filter(q=>!(
+      lastCats.length===3 &&
+      lastCats.every(c=>c===q.category)
+    ));
+    if(catVaried.length) pool=catVaried;
 
-    selected.push(q);
+    pool.sort((a,b)=>scoreCandidate(b,target,recent,used,usedConcepts)-scoreCandidate(a,target,recent,used,usedConcepts));
+    const q=pool[0];
+    if(!q) break;
+
+    out.push(q);
     used.add(q.id);
+    if(q.conceptGroup) usedConcepts.add(q.conceptGroup);
   }
 
-  return selected;
+  // 題庫較細時，確保仍然湊到 10 題；只有真的無法避免時才回用舊題。
+  if(out.length<10){
+    const fallback=shuffle(valid.filter(q=>!used.has(q.id)));
+    for(const q of fallback){
+      if(out.length>=10) break;
+      out.push(q);
+      used.add(q.id);
+    }
+  }
+
+  return out;
 }
 
-function start(selectedMode) {
-  mode = selectedMode;
-  try {
-    round = chooseQuestions();
-    if (round.length !== 10) throw new Error("無法組成完整 10 題。");
-  } catch (err) {
-    showBootError("⚠️ 題目初始化失敗：" + err.message);
+function start(m){
+  mode=m;
+  round=choose();
+  ri=0;
+  results=[];
+  before=P.ability;
+
+  if(round.length<10){
+    alert("目前有效題目不足 10 題，無法開始完整一輪。");
     return;
   }
 
-  index = 0;
-  results = [];
-  beforeAbility = P.ability;
-  showView("quiz");
-  renderQuestion();
+  view("quiz");
+  renderQ();
 }
 
-function renderQuestion() {
-  current = round[index];
+function renderQ(){
+  cur=round[ri];
+  $("#counter").textContent=`第 ${ri+1} / ${round.length} 題`;
+  $("#bar").style.width=(ri/round.length*100)+"%";
+  $("#cat").textContent={
+    grammar:"文法",vocabulary:"詞彙",kanji:"漢字",
+    meaning:"語意",usage:"用法"
+  }[cur.category] || cur.category || "綜合";
+  $("#diff").textContent=`難度 ${cur.difficulty ?? 3}`;
+  $("#question").textContent=cur.question;
+  $("#feedback").innerHTML="";
 
-  $("#counter").textContent = `第 ${index + 1} / 10 題`;
-  $("#bar").style.width = `${(index / 10) * 100}%`;
-  $("#cat").textContent = {
-    grammar: "文法", vocabulary: "詞彙", kanji: "漢字",
-    meaning: "語意", usage: "用法"
-  }[current.category] || current.category;
-  $("#diff").textContent = `難度 ${current.difficulty}`;
-  $("#question").textContent = current.question;
-  $("#feedback").innerHTML = "";
-  $("#feedback").className = "";
-
-  const entries = Object.entries(current.options || {});
-  for (let i = entries.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [entries[i], entries[j]] = [entries[j], entries[i]];
-  }
-
-  $("#options").innerHTML = entries.map(([key, value]) =>
-    `<button class="option" type="button" data-key="${escapeHTML(key)}"><b>${escapeHTML(key)}.</b> ${escapeHTML(value)}</button>`
+  const es=Object.entries(cur.options||{}).sort(()=>Math.random()-.5);
+  $("#options").innerHTML=es.map(([k,v])=>
+    `<button class="option" data-k="${esc(k)}"><b>${esc(k)}.</b> ${esc(v)}</button>`
   ).join("");
 
-  $$(".option").forEach(btn => {
-    btn.addEventListener("click", () => answer(btn.dataset.key), { once: true });
-  });
-
-  $("#why").onclick = explainWhy;
-  $("#explain").onclick = explainOptions;
-  $("#next").onclick = nextQuestion;
-  $("#next").disabled = true;
+  document.querySelectorAll(".option").forEach(b=>b.onclick=()=>answer(b.dataset.k));
+  $("#why").onclick=why;
+  $("#explain").onclick=other;
+  $("#next").onclick=next;
 }
 
-function answer(key) {
-  if (results[index]) return;
+function answer(k){
+  if(results[ri]) return;
 
-  const correct = key === current.answer;
-
-  $$(".option").forEach(btn => {
-    btn.disabled = true;
-    if (btn.dataset.key === current.answer) btn.classList.add("correct");
-    if (btn.dataset.key === key && !correct) btn.classList.add("wrong");
+  const ok=k===cur.answer;
+  document.querySelectorAll(".option").forEach(b=>{
+    b.disabled=true;
+    if(b.dataset.k===cur.answer) b.classList.add("correct");
+    if(b.dataset.k===k && !ok) b.classList.add("wrong");
   });
 
-  $("#feedback").className = "feedback " + (correct ? "good" : "bad");
+  $("#feedback").className="feedback "+(ok?"good":"bad");
+  $("#feedback").innerHTML=
+    `<b>${ok?"✓ 正確！":"✕ 不正確"}</b><br>`+
+    (ok?"答對了。":`你的答案：${esc(k)}。正確答案：${esc(cur.answer)}。`);
 
-  if (correct) {
-    $("#feedback").innerHTML = `<b>✓ 正確！</b><br>答案 ${escapeHTML(current.answer)} 正確。`;
-  } else {
-    $("#feedback").innerHTML =
-      `<b>✕ 不正確</b><br>你的答案：${escapeHTML(key)}　正確答案：${escapeHTML(current.answer)}`;
-  }
-
-  record(correct, key);
-  $("#next").disabled = false;
+  record(ok,k);
 }
 
-function record(correct, chosenKey) {
-  results[index] = { q: current, correct, chosenKey };
+function record(ok,k){
+  results[ri]={q:cur,ok,k};
 
   P.answered++;
-  if (correct) P.correct++;
+  if(ok) P.correct++;
 
-  P.cat[current.category] ??= { attempts: 0, correct: 0 };
-  P.cat[current.category].attempts++;
-  if (correct) P.cat[current.category].correct++;
+  P.cat[cur.category]??={a:0,c:0};
+  P.cat[cur.category].a++;
+  if(ok) P.cat[cur.category].c++;
 
-  P.concept[current.conceptGroup] ??= { attempts: 0, correct: 0 };
-  P.concept[current.conceptGroup].attempts++;
-  if (correct) P.concept[current.conceptGroup].correct++;
+  P.concept[cur.conceptGroup]??={a:0,c:0};
+  P.concept[cur.conceptGroup].a++;
+  if(ok) P.concept[cur.conceptGroup].c++;
 
-  const m = mastery(current.id);
-  m.attempts++;
-  if (correct) m.correct++;
+  const m=mastery(cur.id);
+  m.a++;
+  if(ok)m.c++;
 
-  Object.keys(m.dimensions).forEach(k => {
-    m.dimensions[k] = Math.max(0, Math.min(1, m.dimensions[k] + (correct ? .08 : -.12)));
+  Object.keys(m.d).forEach(x=>{
+    m.d[x]=Math.max(0,Math.min(1,m.d[x]+(ok?.10:-.14)));
   });
 
-  const avg = Object.values(m.dimensions).reduce((a, b) => a + b, 0) / 5;
-  if (avg > .88 && m.attempts >= 6) m.state = "mastered";
-  else if (avg > .68) m.state = "familiar";
-  else if (avg > .42) m.state = "unstable";
-  else m.state = "learning";
+  const avg=Object.values(m.d).reduce((a,b)=>a+b,0)/5;
+  m.s=avg>.88&&m.a>=6?"mastered":
+      avg>.68?"familiar":
+      avg>.42?"unstable":"learning";
 
-  const days = { new: 1, learning: 2, unstable: 1, familiar: 7, mastered: 21 };
-  const due = new Date();
-  due.setDate(due.getDate() + (days[m.state] ?? 2));
-  R[current.id] = due.toISOString();
+  const days={new:1,learning:3,unstable:2,familiar:7,mastered:21}[m.s] ?? 3;
+  const d=new Date();
+  d.setDate(d.getDate()+days);
+  R[cur.id]=d.toISOString();
 
-  if (correct) {
-    delete W[current.id];
-  } else {
-    W[current.id] = {
-      error: errorType(current),
-      time: new Date().toISOString(),
-      chosen: chosenKey
-    };
-  }
+  if(ok) delete W[cur.id];
+  else W[cur.id]={
+    error:errType(cur),
+    at:new Date().toISOString()
+  };
 
-  // Record a simple confusion relationship when two options belong to the same concept family.
-  if (!correct) {
-    const wrongText = current.options?.[chosenKey] ?? chosenKey;
-    const correctText = current.options?.[current.answer] ?? current.answer;
-    const label = `${current.grammarPoint || current.id}: ${wrongText} ↔ ${correctText}`;
-    P.confusions[label] = (P.confusions[label] || 0) + 1;
-  }
-
-  P.ability = Math.max(0, Math.min(100,
-    Math.round(P.ability + (correct
-      ? 2.5 + (current.difficulty - 3) * 1.2
-      : -3 - (current.difficulty - 3) * .5))
+  // 保留原有能力分計法。
+  P.ability=Math.max(0,Math.min(100,
+    Math.round(P.ability+(ok
+      ?2.5+(Number(cur.difficulty||3)-3)*1.2
+      :-3-(Number(cur.difficulty||3)-3)*.5))
   ));
 
+  // 只記錄「題目已做」，供跨模式去重。
   H.unshift({
-    id: current.id, correct, chosenKey,
-    time: new Date().toISOString(),
-    category: current.category
+    id:cur.id,
+    ok,
+    k,
+    mode,
+    time:new Date().toISOString()
   });
-  H = H.slice(0, 300);
+  H=H.slice(0,300);
 
-  saveAll();
-  renderHomeStats();
+  save();
 }
 
-function errorType(q) {
-  if (q.category === "kanji") return "漢字讀音";
-  if (q.category === "vocabulary") return "詞彙混淆";
-  if (q.category === "meaning") return "意思理解";
-  if (q.skill === "grammar_distinction") return "文法混淆";
-  return "語境判斷";
+function errType(q){
+  if(q.category==="kanji")return"漢字讀音";
+  if(q.category==="vocabulary")return"詞彙混淆";
+  if(q.category==="meaning")return"意思理解";
+  if(q.skill==="grammar_distinction")return"文法混淆";
+  return"語境判斷";
 }
 
-function explainWhy() {
-  const ex = current.explanation || {};
-  const keyPoint = ex.keyPoint || ex.correct || "本題考查句子中的語境及文法功能。";
-  openDialog("📖 文法解析",
-    `<p>${escapeHTML(ex.correct || "請根據前後文判斷。")}</p>
-     <p><b>💡 記憶重點</b><br>${escapeHTML(keyPoint)}</p>
-     ${current.grammarPoint ? `<p>考點：<b>${escapeHTML(current.grammarPoint)}</b></p>` : ""}`);
+function why(){
+  const ex=cur.explanation||{};
+  open("📖 為甚麼？",
+    `<p>${esc(ex.correct||"此題考查相關日語用法。")}</p>`+
+    `<p><b>💡 記憶重點</b><br>${esc(ex.keyPoint||"請留意本題的接續、語意及使用情境。")}</p>`+
+    `<p>考點：${esc(ex.grammarPoint||cur.conceptGroup||"綜合")}</p>`
+  );
 }
 
-function explainOptions() {
-  const ex = current.explanation?.options || {};
-  const html = Object.entries(current.options || {}).map(([key, value]) =>
-    `<p><b>${escapeHTML(key)}. ${escapeHTML(value)}</b><br>${key === current.answer ? "✓ 正確" : "✕ 不適合"}：${escapeHTML(ex[key] || "不符合本題語境。")}</p>`
-  ).join("");
-  openDialog("🔍 其他選項", html);
+function other(){
+  const ex=cur.explanation?.options||{};
+  open("🔍 其他選項",
+    Object.entries(cur.options||{}).map(([k,v])=>
+      `<p><b>${esc(k)}. ${esc(v)}</b><br>`+
+      `${k===cur.answer?"✓ 正確":"✕ 不適合"}：${esc(ex[k]||"此選項不符合本句語境。")}</p>`
+    ).join("")
+  );
 }
 
-function openDialog(title, body) {
-  $("#dtitle").textContent = title;
-  $("#dbody").innerHTML = body;
-  const dialog = $("#dialog");
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else dialog.setAttribute("open", "");
+function open(t,b){
+  $("#dtitle").textContent=t;
+  $("#dbody").innerHTML=b;
+  $("#dialog").showModal();
 }
 
-function closeDialog() {
-  const dialog = $("#dialog");
-  if (typeof dialog.close === "function") dialog.close();
-  else dialog.removeAttribute("open");
+function next(){
+  if(!results[ri])return;
+  if(ri<round.length-1){
+    ri++;
+    renderQ();
+  }else finish();
 }
 
-function nextQuestion() {
-  if (!results[index]) return;
-  if (index < round.length - 1) {
-    index++;
-    renderQuestion();
-  } else {
-    finishRound();
-  }
-}
-
-function finishRound() {
-  const score = results.filter(x => x.correct).length;
-
+function finish(){
+  const score=results.filter(x=>x.ok).length;
   E.unshift({
-    time: new Date().toISOString(),
+    time:new Date().toISOString(),
+    mode,
     score,
-    total: 10,
-    before: beforeAbility,
-    after: P.ability,
-    mode
+    before,
+    after:P.ability
   });
-  E = E.slice(0, 50);
-  saveAll();
+  E=E.slice(0,50);
+  save();
 
-  $("#score").textContent = `${score} / 10`;
-  $("#summary").textContent = `本輪有效作答 10 題，答對 ${score} 題。`;
-  $("#before").textContent = beforeAbility;
-  $("#after").textContent = P.ability;
+  $("#score").textContent=score+"/10";
+  $("#summary").textContent=`本輪答對 ${score} 題。`;
+  $("#before").textContent=before;
+  $("#after").textContent=P.ability;
+  $("#rg").textContent=fmt("grammar");
+  $("#rv").textContent=fmt("vocabulary");
+  $("#rk").textContent=fmt("kanji");
 
-  $("#rg").textContent = categoryResult("grammar");
-  $("#rv").textContent = categoryResult("vocabulary");
-  $("#rk").textContent = categoryResult("kanji");
-  $("#ro").textContent = categoryResult("meaning", "usage");
+  const o=results.filter(x=>x.q.category==="meaning"||x.q.category==="usage");
+  $("#ro").textContent=o.length?`${o.filter(x=>x.ok).length}/${o.length}`:"-";
 
-  const wrong = results.filter(x => !x.correct);
-  $("#obs").innerHTML = wrong.length
-    ? `<p>• 本輪有 ${wrong.length} 題錯誤；相關概念會提高日後複習權重。</p>`
-    : "<p>• 本輪全部答對；下一輪會逐步提高難度。</p>";
+  const bad=results.filter(x=>!x.ok);
+  $("#obs").innerHTML=bad.length
+    ?`<p>• 本輪有 ${bad.length} 題錯誤；下一輪會增加相關弱點及相似概念的選題權重。</p>`
+    :`<p>• 本輪全部答對；下一輪會逐步提高難度。</p>`;
 
-  const counts = {};
-  wrong.forEach(x => {
-    const type = errorType(x.q);
-    counts[type] = (counts[type] || 0) + 1;
+  $("#conf").innerHTML=bad.map(x=>
+    `<span class="chip orange">${esc(errType(x.q))}</span>`
+  ).join("")||"暫未形成明顯混淆。";
+
+  view("result");
+}
+
+function fmt(c){
+  const a=results.filter(x=>x.q.category===c);
+  return a.length?`${a.filter(x=>x.ok).length}/${a.length}`:"-";
+}
+
+function home(){
+  const ms=Object.values(M);
+  const av=ms.length
+    ?Math.round(ms.reduce((s,m)=>
+      s+Object.values(m.d).reduce((a,b)=>a+b,0)/5,0
+    )/ms.length*100)
+    :0;
+
+  $("#ability").textContent=P.ability;
+  $("#band").textContent=band(P.ability);
+  $("#mastery").textContent=av+"%";
+  $("#wrong").textContent=Object.keys(W).length;
+  $("#answered").textContent=P.answered;
+
+  const w=Object.entries(P.concept||{})
+    .filter(([,v])=>v.a)
+    .sort((a,b)=>(1-b[1].c/b[1].a)-(1-a[1].c/a[1].a))
+    .slice(0,7);
+
+  $("#homeWeak").innerHTML=w.length
+    ?w.map(([k,v])=>
+      `<span class="chip ${v.c/v.a<.5?"red":"orange"}">`+
+      `${esc(k)} · ${Math.round((1-v.c/v.a)*100)}%</span>`
+    ).join("")
+    :"暫未有足夠數據。";
+}
+
+function progress(){
+  home();
+
+  $("#pa").textContent=P.ability;
+  $("#pb").textContent=band(P.ability);
+  $("#pc").textContent=P.correct;
+  $("#pt").textContent=P.answered;
+  $("#pm").textContent=$("#mastery").textContent;
+
+  const w=Object.entries(P.concept||{})
+    .filter(([,v])=>v.a)
+    .sort((a,b)=>(1-b[1].c/b[1].a)-(1-a[1].c/a[1].a));
+
+  $("#weakmap").innerHTML=w.length
+    ?w.map(([k,v])=>
+      `<div class="weakrow"><span>${esc(k)}</span>`+
+      `<div class="meter"><i style="width:${Math.max(4,(1-v.c/v.a)*100)}%"></i></div>`+
+      `<b>${Math.round((1-v.c/v.a)*100)}%</b></div>`
+    ).join("")
+    :"暫無數據";
+
+  $("#matrix").innerHTML=Object.entries(P.confusions||{})
+    .map(([k,v])=>`<span class="chip orange">${esc(k)} · ${v}</span>`)
+    .join("")||"答錯相似概念後會在此顯示。";
+
+  const qmap=Object.fromEntries(Q.map(q=>[q.id,q]));
+  $("#cards").innerHTML=Object.entries(M)
+    .filter(([,m])=>m.s==="familiar"||m.s==="mastered")
+    .slice(0,12)
+    .map(([id,m])=>
+      `<div class="knowledge"><b>${esc(qmap[id]?.grammarPoint||id)}</b><br>`+
+      `熟練度：${Math.round(Object.values(m.d).reduce((a,b)=>a+b,0)/5*100)}%</div>`
+    ).join("")||"暫未形成知識卡";
+
+  $("#hist").innerHTML=H.slice(0,10).map(x=>
+    `<div class="history">${x.ok?"✓":"✕"} ${esc(x.id)} · `+
+    `${new Date(x.time).toLocaleString("zh-HK",{hour12:false})}</div>`
+  ).join("")||"暫無紀錄";
+}
+
+function bind(){
+  document.querySelectorAll("[data-mode]").forEach(b=>{
+    b.onclick=()=>start(b.dataset.mode);
   });
-  $("#conf").innerHTML = Object.entries(counts)
-    .map(([k, v]) => `<span class="chip orange">${escapeHTML(k)} × ${v}</span>`).join(" ")
-    || "暫未形成明顯混淆。";
 
-  showView("result");
-}
-
-function categoryResult(...categories) {
-  const arr = results.filter(x => categories.includes(x.q.category));
-  return arr.length ? `${arr.filter(x => x.correct).length}/${arr.length}` : "-";
-}
-
-function renderHomeStats() {
-  const masteryValues = Object.values(M);
-  const avg = masteryValues.length
-    ? masteryValues.reduce((sum, m) =>
-        sum + Object.values(m.dimensions).reduce((a, b) => a + b, 0) / 5, 0
-      ) / masteryValues.length
-    : 0;
-
-  $("#ability").textContent = P.ability;
-  $("#band").textContent = band(P.ability);
-  $("#mastery").textContent = `${Math.round(avg * 100)}%`;
-  $("#wrong").textContent = Object.keys(W).length;
-  $("#answered").textContent = P.answered;
-
-  const concepts = Object.entries(P.concept)
-    .filter(([, v]) => v.attempts)
-    .sort((a, b) => (1 - b[1].correct / b[1].attempts) - (1 - a[1].correct / a[1].attempts))
-    .slice(0, 7);
-
-  $("#homeWeak").innerHTML = concepts.length
-    ? concepts.map(([k, v]) => {
-        const rate = v.correct / v.attempts;
-        return `<span class="chip ${rate < .5 ? "red" : "orange"}">${escapeHTML(k)} · ${Math.round((1-rate)*100)}%</span>`;
-      }).join(" ")
-    : "暫未有足夠數據。";
-}
-
-function renderProgress() {
-  renderHomeStats();
-
-  $("#pa").textContent = P.ability;
-  $("#pb").textContent = band(P.ability);
-  $("#pc").textContent = P.correct;
-  $("#pt").textContent = P.answered;
-  $("#pm").textContent = $("#mastery").textContent;
-
-  const concepts = Object.entries(P.concept)
-    .filter(([, v]) => v.attempts)
-    .sort((a, b) => (1 - b[1].correct / b[1].attempts) - (1 - a[1].correct / a[1].attempts));
-
-  $("#weakmap").innerHTML = concepts.length
-    ? concepts.map(([k, v]) => {
-        const weaknessRate = Math.max(0, Math.min(1, 1 - v.correct / v.attempts));
-        return `<div class="weakrow"><span>${escapeHTML(k)}</span><div class="meter"><i style="width:${Math.max(4, weaknessRate*100)}%"></i></div><b>${Math.round(weaknessRate*100)}%</b></div>`;
-      }).join("")
-    : "暫無數據";
-
-  $("#matrix").innerHTML = Object.entries(P.confusions)
-    .sort((a,b) => b[1]-a[1]).slice(0, 12)
-    .map(([k,v]) => `<span class="chip orange">${escapeHTML(k)} × ${v}</span>`).join(" ")
-    || "答錯相似概念後會在此顯示。";
-
-  const qmap = Object.fromEntries(Q.map(q => [q.id, q]));
-  $("#cards").innerHTML = Object.entries(M)
-    .filter(([, m]) => m.state === "familiar" || m.state === "mastered")
-    .slice(0, 12)
-    .map(([id, m]) => {
-      const q = qmap[id];
-      const value = Math.round(Object.values(m.dimensions).reduce((a,b)=>a+b,0)/5*100);
-      return `<div class="knowledge"><b>${escapeHTML(q?.grammarPoint || id)}</b><br>綜合掌握度：${value}%<br>狀態：${escapeHTML(m.state)}</div>`;
-    }).join("")
-    || "暫未形成知識卡";
-
-  $("#hist").innerHTML = H.slice(0, 10)
-    .map(x => `<div class="history">${x.correct ? "✓" : "✕"} ${escapeHTML(x.id)} · ${new Date(x.time).toLocaleString("zh-HK",{hour12:false})}</div>`)
-    .join("") || "暫無紀錄";
-}
-
-function showBootError(message) {
-  const box = $("#bootError");
-  box.hidden = false;
-  box.innerHTML = `<b>${escapeHTML(message)}</b><br><small>請確認 index.html、app.js、questions.json、knowledge.json 均位於 GitHub repository 的根目錄，並重新整理頁面。</small>`;
-}
-
-async function init() {
-  // All event handlers are registered before the data request.
-  $$("[data-mode]").forEach(btn => btn.addEventListener("click", () => start(btn.dataset.mode)));
-  $$("[data-go]").forEach(btn => btn.addEventListener("click", () => {
-    const target = btn.dataset.go;
-    showView(target);
-    if (target === "progress") renderProgress();
-  }));
-
-  $("#settings").addEventListener("click", () => {
-    openDialog("⚙️ 設定",
-      `<label class="setting-row"><input id="soundSetting" type="checkbox" ${settings.sound ? "checked" : ""}> 答題後提示音（目前為簡易版）</label>
-       <p class="muted">學習紀錄只儲存在這個瀏覽器的 localStorage。</p>
-       <button id="clearData" class="danger" type="button">清除本機學習紀錄</button>`);
-    $("#soundSetting").onchange = e => {
-      settings.sound = e.target.checked;
-      saveAll();
+  document.querySelectorAll("[data-go]").forEach(b=>{
+    b.onclick=()=>{
+      view(b.dataset.go);
+      if(b.dataset.go==="progress")progress();
     };
-    $("#clearData").onclick = () => {
-      if (!confirm("確定要清除所有本機學習紀錄嗎？")) return;
-      Object.values(STORAGE).forEach(k => localStorage.removeItem(k));
+  });
+
+  if($("#quit"))$("#quit").onclick=()=>view("home");
+  if($("#again"))$("#again").onclick=()=>start(mode);
+  if($("#close"))$("#close").onclick=()=>$("#dialog").close();
+
+  // Settings：舊版本曾漏掉 click handler，這裡一併保留。
+  const settings=$("#settings");
+  const dialog=$("#settingsDialog");
+  if(settings && dialog) settings.onclick=()=>dialog.showModal();
+
+  const closeSettings=$("#closeSettings");
+  if(closeSettings && dialog) closeSettings.onclick=()=>dialog.close();
+
+  const clear=$("#clearData");
+  if(clear) clear.onclick=()=>{
+    if(confirm("確定要清除所有學習紀錄嗎？題庫不會被刪除。")){
+      Object.values(S).forEach(k=>localStorage.removeItem(k));
       location.reload();
-    };
-  });
+    }
+  };
+}
 
-  $("#quit").onclick = () => showView("home");
-  $("#again").onclick = () => start(mode);
-  $("#close").onclick = closeDialog;
+async function boot(){
+  bind();
 
-  $("#dialog").addEventListener("click", e => {
-    if (e.target === $("#dialog")) closeDialog();
-  });
+  try{
+    const r=await fetch("./questions.json",{cache:"no-store"});
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    const x=await r.json();
+    Q=Array.isArray(x)?x:x.questions||[];
 
-  try {
-    const response = await fetch("./questions.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`questions.json HTTP ${response.status}`);
-    const data = await response.json();
-    if (!Array.isArray(data)) throw new Error("questions.json 不是陣列格式");
+    const valid=Q.filter(q=>q.validity!=="ambiguous");
+    if(valid.length<10) throw new Error("有效題目不足 10 題");
 
-    Q = data.filter(q => q.validity !== "ambiguous");
-    if (Q.length < 10) throw new Error(`有效題目只有 ${Q.length} 題`);
-
-    renderHomeStats();
-    showView("home");
-  } catch (error) {
-    console.error("JLPT N3 初始化失敗：", error);
-    showBootError("⚠️ 題庫載入失敗：" + error.message);
+    home();
+  }catch(err){
+    console.error(err);
+    const box=$("#bootError");
+    if(box){
+      box.hidden=false;
+      box.textContent="題庫載入失敗："+err.message+
+        "。請確認 questions.json 與 index.html 位於 repository root。";
+    }else{
+      alert("題庫載入失敗，請確認 questions.json 與 index.html 在同一目錄。");
+    }
   }
 }
 
-document.addEventListener("DOMContentLoaded", init);
-})();
+document.addEventListener("DOMContentLoaded",boot);
