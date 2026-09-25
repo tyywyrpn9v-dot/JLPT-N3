@@ -1,0 +1,2175 @@
+[
+  {
+    "id": "N3-G-001",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～わりに",
+    "conceptGroup": "contrast",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "田中さんは忙しい＿＿、毎日運動している。",
+    "options": {
+      "A": "わりに",
+      "B": "ために",
+      "C": "おかげで",
+      "D": "うちに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "實際情況與預期有反差。",
+      "options": {
+        "A": "✓ 正確。實際情況與預期有反差。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～わりに",
+      "keyPoint": "實際情況與預期有反差。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "contrast",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-002",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～のに",
+    "conceptGroup": "contrast",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "約束した＿＿、彼は来なかった。",
+    "options": {
+      "A": "のに",
+      "B": "ために",
+      "C": "ように",
+      "D": "うちに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "明明前項成立，後項卻與預期不同。",
+      "options": {
+        "A": "✓ 正確。明明前項成立，後項卻與預期不同。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～のに",
+      "keyPoint": "明明前項成立，後項卻與預期不同。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "contrast",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-003",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～おかげで",
+    "conceptGroup": "cause_reason",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "先生のおかげで、試験に＿＿。",
+    "options": {
+      "A": "合格できた",
+      "B": "遅れた",
+      "C": "忘れた",
+      "D": "失敗した"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示因正面原因而得到好結果。",
+      "options": {
+        "A": "✓ 正確。表示因正面原因而得到好結果。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～おかげで",
+      "keyPoint": "表示因正面原因而得到好結果。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "cause_reason",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-004",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～せいで",
+    "conceptGroup": "cause_reason",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "雨の＿＿、試合が中止になった。",
+    "options": {
+      "A": "せいで",
+      "B": "おかげで",
+      "C": "わりに",
+      "D": "うちに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "通常用於負面結果的原因。",
+      "options": {
+        "A": "✓ 正確。通常用於負面結果的原因。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～せいで",
+      "keyPoint": "通常用於負面結果的原因。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "cause_reason",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-005",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ために",
+    "conceptGroup": "purpose",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "日本で働く＿＿、日本語を勉強している。",
+    "options": {
+      "A": "ために",
+      "B": "おかげで",
+      "C": "わりに",
+      "D": "うちに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示明確目的。",
+      "options": {
+        "A": "✓ 正確。表示明確目的。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ために",
+      "keyPoint": "表示明確目的。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "purpose",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-006",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ように",
+    "conceptGroup": "purpose",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "忘れない＿＿、メモしておきましょう。",
+    "options": {
+      "A": "ように",
+      "B": "ために",
+      "C": "おかげで",
+      "D": "せいで"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "為了達到或避免某種狀態。",
+      "options": {
+        "A": "✓ 正確。為了達到或避免某種狀態。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ように",
+      "keyPoint": "為了達到或避免某種狀態。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "purpose",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-007",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～うちに",
+    "conceptGroup": "time",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "明るい＿＿、帰りましょう。",
+    "options": {
+      "A": "うちに",
+      "B": "ために",
+      "C": "わりに",
+      "D": "おかげで"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "趁某狀態仍然存在時做某事。",
+      "options": {
+        "A": "✓ 正確。趁某狀態仍然存在時做某事。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～うちに",
+      "keyPoint": "趁某狀態仍然存在時做某事。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "time",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-008",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ことになっている",
+    "conceptGroup": "rule",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "この会社では、毎年健康診断を受ける＿＿。",
+    "options": {
+      "A": "ことになっている",
+      "B": "ことにしている",
+      "C": "ことがある",
+      "D": "ようになる"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示外部規定、制度或安排。",
+      "options": {
+        "A": "✓ 正確。表示外部規定、制度或安排。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ことになっている",
+      "keyPoint": "表示外部規定、制度或安排。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "rule",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-009",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ことにする",
+    "conceptGroup": "decision",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "健康のために、毎朝歩く＿＿。",
+    "options": {
+      "A": "ことにした",
+      "B": "ことになった",
+      "C": "ことがある",
+      "D": "ようになった"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示自己作出的決定。",
+      "options": {
+        "A": "✓ 正確。表示自己作出的決定。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ことにする",
+      "keyPoint": "表示自己作出的決定。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "decision",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-010",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ようになる",
+    "conceptGroup": "change",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "最近、漢字が読める＿＿なった。",
+    "options": {
+      "A": "ように",
+      "B": "ことに",
+      "C": "ために",
+      "D": "わりに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示能力、習慣或狀態發生變化。",
+      "options": {
+        "A": "✓ 正確。表示能力、習慣或狀態發生變化。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ようになる",
+      "keyPoint": "表示能力、習慣或狀態發生變化。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "change",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-011",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～しか～ない",
+    "conceptGroup": "limitation",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "財布には千円＿＿残っていない。",
+    "options": {
+      "A": "しか",
+      "B": "だけ",
+      "C": "ほど",
+      "D": "まで"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示只有某數量，後面配否定。",
+      "options": {
+        "A": "✓ 正確。表示只有某數量，後面配否定。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～しか～ない",
+      "keyPoint": "表示只有某數量，後面配否定。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "limitation",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-012",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ほど～ない",
+    "conceptGroup": "comparison",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "今年は去年＿＿暑くない。",
+    "options": {
+      "A": "ほど",
+      "B": "しか",
+      "C": "まで",
+      "D": "だけ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示沒有前項那麼……。",
+      "options": {
+        "A": "✓ 正確。表示沒有前項那麼……。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ほど～ない",
+      "keyPoint": "表示沒有前項那麼……。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "comparison",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-013",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～てから",
+    "conceptGroup": "time",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "朝ご飯を食べ＿＿、会社へ行く。",
+    "options": {
+      "A": "てから",
+      "B": "ながら",
+      "C": "までに",
+      "D": "うちに"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示完成前項後再做後項。",
+      "options": {
+        "A": "✓ 正確。表示完成前項後再做後項。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～てから",
+      "keyPoint": "表示完成前項後再做後項。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "time",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-014",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ながら",
+    "conceptGroup": "time",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "音楽を聞き＿＿、勉強している。",
+    "options": {
+      "A": "ながら",
+      "B": "てから",
+      "C": "ために",
+      "D": "ばかり"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示兩個動作同時進行。",
+      "options": {
+        "A": "✓ 正確。表示兩個動作同時進行。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ながら",
+      "keyPoint": "表示兩個動作同時進行。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "time",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-015",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～までに",
+    "conceptGroup": "time",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "金曜日＿＿提出してください。",
+    "options": {
+      "A": "までに",
+      "B": "まで",
+      "C": "うちに",
+      "D": "ながら"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示截止時間前完成某動作。",
+      "options": {
+        "A": "✓ 正確。表示截止時間前完成某動作。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～までに",
+      "keyPoint": "表示截止時間前完成某動作。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "time",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-016",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ても",
+    "conceptGroup": "condition",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "雨が降っ＿＿、試合は行われる。",
+    "options": {
+      "A": "ても",
+      "B": "たら",
+      "C": "なら",
+      "D": "ので"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示即使前項成立，後項仍然成立。",
+      "options": {
+        "A": "✓ 正確。表示即使前項成立，後項仍然成立。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ても",
+      "keyPoint": "表示即使前項成立，後項仍然成立。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "condition",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-017",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～ば",
+    "conceptGroup": "condition",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "時間があれ＿＿、行きます。",
+    "options": {
+      "A": "ば",
+      "B": "なら",
+      "C": "たら",
+      "D": "ても"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示條件「如果……」。",
+      "options": {
+        "A": "✓ 正確。表示條件「如果……」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～ば",
+      "keyPoint": "表示條件「如果……」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "condition",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-018",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～たら",
+    "conceptGroup": "condition",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "駅に着い＿＿、電話してください。",
+    "options": {
+      "A": "たら",
+      "B": "ても",
+      "C": "ほど",
+      "D": "ながら"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示完成或發生某條件後。",
+      "options": {
+        "A": "✓ 正確。表示完成或發生某條件後。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～たら",
+      "keyPoint": "表示完成或發生某條件後。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "condition",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-019",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～はずだ",
+    "conceptGroup": "assumption",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "田中さんはもう家に着いた＿＿だ。",
+    "options": {
+      "A": "はず",
+      "B": "わけ",
+      "C": "ため",
+      "D": "うち"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "根據理由推斷「應該……」。",
+      "options": {
+        "A": "✓ 正確。根據理由推斷「應該……」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～はずだ",
+      "keyPoint": "根據理由推斷「應該……」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "assumption",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-020",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～かもしれない",
+    "conceptGroup": "assumption",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "明日は雨が降る＿＿しれない。",
+    "options": {
+      "A": "かも",
+      "B": "そう",
+      "C": "よう",
+      "D": "はず"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示不確定推測。",
+      "options": {
+        "A": "✓ 正確。表示不確定推測。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～かもしれない",
+      "keyPoint": "表示不確定推測。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "assumption",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-021",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～わけではない",
+    "conceptGroup": "negative",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "甘い物が嫌いな＿＿ありません。",
+    "options": {
+      "A": "わけでは",
+      "B": "ことでは",
+      "C": "ようでは",
+      "D": "ためでは"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示部分否定，即並非完全如此。",
+      "options": {
+        "A": "✓ 正確。表示部分否定，即並非完全如此。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～わけではない",
+      "keyPoint": "表示部分否定，即並非完全如此。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "negative",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-022",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～そうだ",
+    "conceptGroup": "appearance",
+    "skill": "grammar_distinction",
+    "difficulty": 4,
+    "question": "このケーキはおいし＿＿です。",
+    "options": {
+      "A": "そう",
+      "B": "よう",
+      "C": "らしい",
+      "D": "みたい"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "從外觀或感覺判斷「看起來……」。",
+      "options": {
+        "A": "✓ 正確。從外觀或感覺判斷「看起來……」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～そうだ",
+      "keyPoint": "從外觀或感覺判斷「看起來……」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "appearance",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-023",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～そうだ（傳聞）",
+    "conceptGroup": "hearsay",
+    "skill": "grammar_distinction",
+    "difficulty": 5,
+    "question": "天気予報によると、明日は雨が降る＿＿です。",
+    "options": {
+      "A": "そう",
+      "B": "よう",
+      "C": "ため",
+      "D": "わけ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "根據消息來源轉述傳聞。",
+      "options": {
+        "A": "✓ 正確。根據消息來源轉述傳聞。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～そうだ（傳聞）",
+      "keyPoint": "根據消息來源轉述傳聞。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "hearsay",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-024",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～すぎる",
+    "conceptGroup": "degree",
+    "skill": "grammar_distinction",
+    "difficulty": 2,
+    "question": "この問題は難し＿＿。",
+    "options": {
+      "A": "すぎます",
+      "B": "すぎません",
+      "C": "すぎるです",
+      "D": "すぎでした"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示太過……；い形容詞去い再接すぎる。",
+      "options": {
+        "A": "✓ 正確。表示太過……；い形容詞去い再接すぎる。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～すぎる",
+      "keyPoint": "表示太過……；い形容詞去い再接すぎる。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "degree",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-G-025",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "文法辨析",
+    "grammarPoint": "～たことがある",
+    "conceptGroup": "experience",
+    "skill": "grammar_distinction",
+    "difficulty": 3,
+    "question": "日本へ行っ＿＿ことがあります。",
+    "options": {
+      "A": "た",
+      "B": "て",
+      "C": "ない",
+      "D": "ます"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示曾經有過某經驗。",
+      "options": {
+        "A": "✓ 正確。表示曾經有過某經驗。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "～たことがある",
+      "keyPoint": "表示曾經有過某經驗。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "experience",
+      "grammar"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-026",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "詞彙搭配",
+    "conceptGroup": "vocabulary_usage",
+    "skill": "vocabulary_usage",
+    "difficulty": 4,
+    "question": "会議の日程を＿＿してください。",
+    "options": {
+      "A": "確認",
+      "B": "経験",
+      "C": "解決",
+      "D": "招待"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "「日程を確認する」是自然搭配。",
+      "options": {
+        "A": "✓ 正確。「日程を確認する」是自然搭配。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "詞彙搭配",
+      "keyPoint": "「日程を確認する」是自然搭配。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_usage",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-027",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "複雑",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 5,
+    "question": "この仕事は思ったより＿＿です。",
+    "options": {
+      "A": "複雑",
+      "B": "十分",
+      "C": "必要",
+      "D": "安全"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "複雑表示內容或結構不簡單。",
+      "options": {
+        "A": "✓ 正確。複雑表示內容或結構不簡單。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "複雑",
+      "keyPoint": "複雑表示內容或結構不簡單。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-028",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "やっと",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 2,
+    "question": "電車が遅れたので、＿＿会社に着いた。",
+    "options": {
+      "A": "やっと",
+      "B": "きっと",
+      "C": "ずっと",
+      "D": "もっと"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示經過困難或等待後「終於」。",
+      "options": {
+        "A": "✓ 正確。表示經過困難或等待後「終於」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "やっと",
+      "keyPoint": "表示經過困難或等待後「終於」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-029",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "だんだん",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 3,
+    "question": "薬を飲めば、＿＿よくなるでしょう。",
+    "options": {
+      "A": "だんだん",
+      "B": "たぶん",
+      "C": "かなり",
+      "D": "全然"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示逐漸發生變化。",
+      "options": {
+        "A": "✓ 正確。表示逐漸發生變化。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "だんだん",
+      "keyPoint": "表示逐漸發生變化。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-030",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "書く",
+    "conceptGroup": "vocabulary_usage",
+    "skill": "vocabulary_usage",
+    "difficulty": 4,
+    "question": "予定を手帳に＿＿おいた。",
+    "options": {
+      "A": "書いて",
+      "B": "描いて",
+      "C": "決めて",
+      "D": "伝えて"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "「手帳に書く」表示寫在記事本上。",
+      "options": {
+        "A": "✓ 正確。「手帳に書く」表示寫在記事本上。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "書く",
+      "keyPoint": "「手帳に書く」表示寫在記事本上。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_usage",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-031",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "予約する",
+    "conceptGroup": "vocabulary_usage",
+    "skill": "vocabulary_usage",
+    "difficulty": 5,
+    "question": "旅行の前にホテルを＿＿しておいた。",
+    "options": {
+      "A": "予約",
+      "B": "利用",
+      "C": "出発",
+      "D": "到着"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "「ホテルを予約する」是自然搭配。",
+      "options": {
+        "A": "✓ 正確。「ホテルを予約する」是自然搭配。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "予約する",
+      "keyPoint": "「ホテルを予約する」是自然搭配。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_usage",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-032",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "閉まる",
+    "conceptGroup": "vocabulary_distinction",
+    "skill": "vocabulary_usage",
+    "difficulty": 2,
+    "question": "ドアが風で＿＿。",
+    "options": {
+      "A": "閉まった",
+      "B": "閉めた",
+      "C": "閉じた",
+      "D": "閉まらせた"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "「閉まる」是自動詞，門自己關上。",
+      "options": {
+        "A": "✓ 正確。「閉まる」是自動詞，門自己關上。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "閉まる",
+      "keyPoint": "「閉まる」是自動詞，門自己關上。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_distinction",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-033",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "知っている",
+    "conceptGroup": "vocabulary_distinction",
+    "skill": "vocabulary_usage",
+    "difficulty": 3,
+    "question": "駅までの道を＿＿人に聞いた。",
+    "options": {
+      "A": "知っている",
+      "B": "知る",
+      "C": "分ける",
+      "D": "通じる"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "「知っている」表示處於已知狀態。",
+      "options": {
+        "A": "✓ 正確。「知っている」表示處於已知狀態。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "知っている",
+      "keyPoint": "「知っている」表示處於已知狀態。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_distinction",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-034",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "かなり",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 4,
+    "question": "今日は＿＿疲れた。",
+    "options": {
+      "A": "かなり",
+      "B": "ぜひ",
+      "C": "もし",
+      "D": "たぶん"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示程度相當高。",
+      "options": {
+        "A": "✓ 正確。表示程度相當高。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "かなり",
+      "keyPoint": "表示程度相當高。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-035",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "説明する",
+    "conceptGroup": "vocabulary_usage",
+    "skill": "vocabulary_usage",
+    "difficulty": 5,
+    "question": "先生が丁寧に＿＿してくれた。",
+    "options": {
+      "A": "説明",
+      "B": "紹介",
+      "C": "招待",
+      "D": "相談"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "對問題作詳細說明用「説明する」。",
+      "options": {
+        "A": "✓ 正確。對問題作詳細說明用「説明する」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "説明する",
+      "keyPoint": "對問題作詳細說明用「説明する」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_usage",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-036",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "興味",
+    "conceptGroup": "vocabulary_usage",
+    "skill": "vocabulary_usage",
+    "difficulty": 2,
+    "question": "日本の文化に＿＿がある。",
+    "options": {
+      "A": "興味",
+      "B": "原因",
+      "C": "到着",
+      "D": "準備"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "固定搭配「～に興味がある」。",
+      "options": {
+        "A": "✓ 正確。固定搭配「～に興味がある」。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "興味",
+      "keyPoint": "固定搭配「～に興味がある」。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_usage",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-037",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "急いで",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 3,
+    "question": "忙しかったので、昼ご飯を＿＿食べた。",
+    "options": {
+      "A": "急いで",
+      "B": "ゆっくり",
+      "C": "たぶん",
+      "D": "ぜひ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "急いで表示匆忙地、趕快地。",
+      "options": {
+        "A": "✓ 正確。急いで表示匆忙地、趕快地。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "急いで",
+      "keyPoint": "急いで表示匆忙地、趕快地。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-V-038",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "詞彙辨析",
+    "grammarPoint": "なんとか",
+    "conceptGroup": "vocabulary_nuance",
+    "skill": "vocabulary_usage",
+    "difficulty": 4,
+    "question": "電車が遅れたが、＿＿間に合った。",
+    "options": {
+      "A": "なんとか",
+      "B": "まったく",
+      "C": "ずっと",
+      "D": "ぜひ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "表示雖然有困難，但總算做到。",
+      "options": {
+        "A": "✓ 正確。表示雖然有困難，但總算做到。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "なんとか",
+      "keyPoint": "表示雖然有困難，但總算做到。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "vocabulary_nuance",
+      "vocabulary"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-039",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "準備",
+    "conceptGroup": "kanji_reading",
+    "skill": "kanji_reading",
+    "difficulty": 5,
+    "question": "「準備」の読み方はどれですか。",
+    "options": {
+      "A": "じゅんび",
+      "B": "じゅびん",
+      "C": "しゅんび",
+      "D": "じゅんぴ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "準備＝じゅんび。",
+      "options": {
+        "A": "✓ 正確。準備＝じゅんび。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "準備",
+      "keyPoint": "準備＝じゅんび。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_reading",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-040",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "確認",
+    "conceptGroup": "kanji_reading",
+    "skill": "kanji_reading",
+    "difficulty": 2,
+    "question": "「確認」の読み方はどれですか。",
+    "options": {
+      "A": "かくにん",
+      "B": "かんにん",
+      "C": "かくじん",
+      "D": "かんじん"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "確認＝かくにん。",
+      "options": {
+        "A": "✓ 正確。確認＝かくにん。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "確認",
+      "keyPoint": "確認＝かくにん。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_reading",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-041",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "経験",
+    "conceptGroup": "kanji_meaning",
+    "skill": "kanji_reading",
+    "difficulty": 3,
+    "question": "「経験」の意味に近いものはどれですか。",
+    "options": {
+      "A": "經驗",
+      "B": "計劃",
+      "C": "原因",
+      "D": "規則"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "経験表示親身經歷過的事情，即經驗。",
+      "options": {
+        "A": "✓ 正確。経験表示親身經歷過的事情，即經驗。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "経験",
+      "keyPoint": "経験表示親身經歷過的事情，即經驗。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_meaning",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-042",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "必要",
+    "conceptGroup": "kanji_usage",
+    "skill": "kanji_reading",
+    "difficulty": 4,
+    "question": "「必要」を使うのに自然な文はどれですか。",
+    "options": {
+      "A": "パスポートが必要です。",
+      "B": "パスポートが経験です。",
+      "C": "パスポートが到着です。",
+      "D": "パスポートが原因です。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "必要表示需要、必要性。",
+      "options": {
+        "A": "✓ 正確。必要表示需要、必要性。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "必要",
+      "keyPoint": "必要表示需要、必要性。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_usage",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-043",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "複雑",
+    "conceptGroup": "kanji_reading",
+    "skill": "kanji_reading",
+    "difficulty": 5,
+    "question": "「複雑」の読み方はどれですか。",
+    "options": {
+      "A": "ふくざつ",
+      "B": "ふくさつ",
+      "C": "ふっざつ",
+      "D": "ぶくざつ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "複雑＝ふくざつ。",
+      "options": {
+        "A": "✓ 正確。複雑＝ふくざつ。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "複雑",
+      "keyPoint": "複雑＝ふくざつ。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_reading",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-044",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "必要",
+    "conceptGroup": "kanji_reading",
+    "skill": "kanji_reading",
+    "difficulty": 2,
+    "question": "「必要」の読み方はどれですか。",
+    "options": {
+      "A": "ひつよう",
+      "B": "ひっよう",
+      "C": "ひつよ",
+      "D": "ひちよう"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "必要＝ひつよう。",
+      "options": {
+        "A": "✓ 正確。必要＝ひつよう。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "必要",
+      "keyPoint": "必要＝ひつよう。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_reading",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-K-045",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "漢字",
+    "grammarPoint": "確認",
+    "conceptGroup": "kanji_meaning",
+    "skill": "kanji_reading",
+    "difficulty": 3,
+    "question": "「確認」の意味に近いものはどれですか。",
+    "options": {
+      "A": "確認",
+      "B": "比較",
+      "C": "改變",
+      "D": "邀請"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "確認＝確認、核實。",
+      "options": {
+        "A": "✓ 正確。確認＝確認、核實。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "確認",
+      "keyPoint": "確認＝確認、核實。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "kanji_meaning",
+      "kanji"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-M-046",
+    "level": "N3",
+    "category": "meaning",
+    "subcategory": "語意理解",
+    "grammarPoint": "句意",
+    "conceptGroup": "meaning_understanding",
+    "skill": "meaning_understanding",
+    "difficulty": 4,
+    "question": "「電車が遅れたので、会議に間に合いませんでした。」的意思是？",
+    "options": {
+      "A": "因為電車延誤，所以趕不上會議。",
+      "B": "因為會議延誤，所以趕不上電車。",
+      "C": "為了趕會議，所以電車延誤。",
+      "D": "電車準時但沒有參加會議。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "ので表示原因；間に合わない表示趕不上。",
+      "options": {
+        "A": "✓ 正確。ので表示原因；間に合わない表示趕不上。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "句意",
+      "keyPoint": "ので表示原因；間に合わない表示趕不上。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "meaning_understanding",
+      "meaning"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-M-047",
+    "level": "N3",
+    "category": "meaning",
+    "subcategory": "語意理解",
+    "grammarPoint": "句意",
+    "conceptGroup": "meaning_understanding",
+    "skill": "meaning_understanding",
+    "difficulty": 5,
+    "question": "「この店は駅から遠いわりに、いつも客が多い。」最接近？",
+    "options": {
+      "A": "店雖然離車站遠，但客人總是很多。",
+      "B": "因為離車站遠，所以客人很多。",
+      "C": "為吸引客人而搬到遠處。",
+      "D": "離車站近但沒有客人。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "わりに表示實際結果與一般預期有反差。",
+      "options": {
+        "A": "✓ 正確。わりに表示實際結果與一般預期有反差。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "句意",
+      "keyPoint": "わりに表示實際結果與一般預期有反差。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "meaning_understanding",
+      "meaning"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-M-048",
+    "level": "N3",
+    "category": "meaning",
+    "subcategory": "語意理解",
+    "grammarPoint": "句意",
+    "conceptGroup": "meaning_understanding",
+    "skill": "meaning_understanding",
+    "difficulty": 2,
+    "question": "「健康のために、毎日野菜を食べることにしています。」意思是？",
+    "options": {
+      "A": "為了健康，我一直保持每天吃菜的習慣。",
+      "B": "因為健康，別人規定我吃菜。",
+      "C": "以前吃菜，現在不吃。",
+      "D": "雖然健康，但不吃菜。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "ために表示目的；ことにしている表示自己決定後持續。",
+      "options": {
+        "A": "✓ 正確。ために表示目的；ことにしている表示自己決定後持續。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "句意",
+      "keyPoint": "ために表示目的；ことにしている表示自己決定後持續。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "meaning_understanding",
+      "meaning"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-M-049",
+    "level": "N3",
+    "category": "meaning",
+    "subcategory": "語意理解",
+    "grammarPoint": "句意",
+    "conceptGroup": "meaning_understanding",
+    "skill": "meaning_understanding",
+    "difficulty": 3,
+    "question": "「彼は日本語が話せるようになった。」表示？",
+    "options": {
+      "A": "以前不會，現在變得會說日語。",
+      "B": "以前會，現在不會。",
+      "C": "決定不說日語。",
+      "D": "規定所有人說日語。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "ようになる表示能力或狀態發生變化。",
+      "options": {
+        "A": "✓ 正確。ようになる表示能力或狀態發生變化。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "句意",
+      "keyPoint": "ようになる表示能力或狀態發生變化。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "meaning_understanding",
+      "meaning"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-M-050",
+    "level": "N3",
+    "category": "meaning",
+    "subcategory": "語意理解",
+    "grammarPoint": "句意",
+    "conceptGroup": "meaning_understanding",
+    "skill": "meaning_understanding",
+    "difficulty": 4,
+    "question": "「全部食べなくてもいいです。」意思是？",
+    "options": {
+      "A": "不用全部吃完也可以。",
+      "B": "一定要全部吃完。",
+      "C": "不可以吃任何東西。",
+      "D": "只有吃完才可以。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "なくてもいい表示不做某事也可以。",
+      "options": {
+        "A": "✓ 正確。なくてもいい表示不做某事也可以。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "句意",
+      "keyPoint": "なくてもいい表示不做某事也可以。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "meaning_understanding",
+      "meaning"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-U-051",
+    "level": "N3",
+    "category": "usage",
+    "subcategory": "用法辨析",
+    "grammarPoint": "文法使用",
+    "conceptGroup": "grammar_usage",
+    "skill": "grammar_usage",
+    "difficulty": 5,
+    "question": "「多虧朋友幫忙，所以順利完成」最自然是哪句？",
+    "options": {
+      "A": "友達のおかげで、無事に終わりました。",
+      "B": "友達のせいで、無事に終わりました。",
+      "C": "友達のわりに、無事に終わりました。",
+      "D": "友達のうちに、無事に終わりました。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "正面結果配合感謝原因用おかげで。",
+      "options": {
+        "A": "✓ 正確。正面結果配合感謝原因用おかげで。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "文法使用",
+      "keyPoint": "正面結果配合感謝原因用おかげで。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "grammar_usage",
+      "usage"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-U-052",
+    "level": "N3",
+    "category": "usage",
+    "subcategory": "用法辨析",
+    "grammarPoint": "文法使用",
+    "conceptGroup": "grammar_usage",
+    "skill": "grammar_usage",
+    "difficulty": 2,
+    "question": "「自己決定由下月開始每天跑步」最自然是哪句？",
+    "options": {
+      "A": "来月から毎朝走ることにします。",
+      "B": "来月から毎朝走ることになっています。",
+      "C": "来月から毎朝走るようにされます。",
+      "D": "来月から毎朝走るわけではありません。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "ことにする表示自己作出決定。",
+      "options": {
+        "A": "✓ 正確。ことにする表示自己作出決定。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "文法使用",
+      "keyPoint": "ことにする表示自己作出決定。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "grammar_usage",
+      "usage"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-U-053",
+    "level": "N3",
+    "category": "usage",
+    "subcategory": "用法辨析",
+    "grammarPoint": "相似文法",
+    "conceptGroup": "grammar_distinction",
+    "skill": "grammar_usage",
+    "difficulty": 3,
+    "question": "「明明很累，卻沒有早點睡」最自然是哪句？",
+    "options": {
+      "A": "疲れているのに、早く寝なかった。",
+      "B": "疲れているために、早く寝なかった。",
+      "C": "疲れているおかげで、早く寝なかった。",
+      "D": "疲れているうちに、早く寝なかった。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "のに表示明明……卻……的逆接。",
+      "options": {
+        "A": "✓ 正確。のに表示明明……卻……的逆接。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "相似文法",
+      "keyPoint": "のに表示明明……卻……的逆接。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "grammar_distinction",
+      "usage"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-U-054",
+    "level": "N3",
+    "category": "usage",
+    "subcategory": "用法辨析",
+    "grammarPoint": "相似文法",
+    "conceptGroup": "grammar_distinction",
+    "skill": "grammar_usage",
+    "difficulty": 4,
+    "question": "「公司規定員工每年接受健康檢查」最自然是哪句？",
+    "options": {
+      "A": "社員は毎年健康診断を受けることになっています。",
+      "B": "社員は毎年健康診断を受けることにしています。",
+      "C": "社員は毎年健康診断を受けるわりにです。",
+      "D": "社員は毎年健康診断を受けるそうにしています。"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "外部制度或公司規定使用ことになっている。",
+      "options": {
+        "A": "✓ 正確。外部制度或公司規定使用ことになっている。",
+        "B": "✕ 不適合本題語境。",
+        "C": "✕ 不適合本題語境。",
+        "D": "✕ 不適合本題語境。"
+      },
+      "grammarPoint": "相似文法",
+      "keyPoint": "外部制度或公司規定使用ことになっている。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "N3",
+      "grammar_distinction",
+      "usage"
+    ],
+    "validity": "valid"
+  },
+  {
+    "id": "N3-X-001",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "題目品質測試",
+    "skill": "quality_check",
+    "difficulty": 3,
+    "question": "彼は忙しい＿＿、毎日運動している。",
+    "options": {
+      "A": "わりに",
+      "B": "のに",
+      "C": "けれども",
+      "D": "ために"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "此題標記為歧義題，不應計分。",
+      "options": {
+        "A": "不作正式判分。",
+        "B": "不作正式判分。",
+        "C": "不作正式判分。",
+        "D": "不作正式判分。"
+      },
+      "grammarPoint": "題目品質檢查",
+      "keyPoint": "A、B、C均可自然表達逆接，不能確保唯一答案。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "ambiguous",
+      "quality_check"
+    ],
+    "validity": "ambiguous",
+    "validityReason": "A、B、C均可自然表達逆接，不能確保唯一答案。"
+  },
+  {
+    "id": "N3-X-002",
+    "level": "N3",
+    "category": "vocabulary",
+    "subcategory": "題目品質測試",
+    "skill": "quality_check",
+    "difficulty": 3,
+    "question": "この店は＿＿おいしいです。",
+    "options": {
+      "A": "とても",
+      "B": "かなり",
+      "C": "非常に",
+      "D": "全部"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "此題標記為歧義題，不應計分。",
+      "options": {
+        "A": "不作正式判分。",
+        "B": "不作正式判分。",
+        "C": "不作正式判分。",
+        "D": "不作正式判分。"
+      },
+      "grammarPoint": "題目品質檢查",
+      "keyPoint": "A、B、C均為自然程度副詞，缺乏唯一答案。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "ambiguous",
+      "quality_check"
+    ],
+    "validity": "ambiguous",
+    "validityReason": "A、B、C均為自然程度副詞，缺乏唯一答案。"
+  },
+  {
+    "id": "N3-X-003",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "題目品質測試",
+    "skill": "quality_check",
+    "difficulty": 3,
+    "question": "雨が降っ＿＿、出かけます。",
+    "options": {
+      "A": "ても",
+      "B": "たら",
+      "C": "なら",
+      "D": "たところ"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "此題標記為歧義題，不應計分。",
+      "options": {
+        "A": "不作正式判分。",
+        "B": "不作正式判分。",
+        "C": "不作正式判分。",
+        "D": "不作正式判分。"
+      },
+      "grammarPoint": "題目品質檢查",
+      "keyPoint": "缺少上下文，多個條件表達均可能成立。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "ambiguous",
+      "quality_check"
+    ],
+    "validity": "ambiguous",
+    "validityReason": "缺少上下文，多個條件表達均可能成立。"
+  },
+  {
+    "id": "N3-X-004",
+    "level": "N3",
+    "category": "kanji",
+    "subcategory": "題目品質測試",
+    "skill": "quality_check",
+    "difficulty": 3,
+    "question": "「明日」の読み方は？",
+    "options": {
+      "A": "あした",
+      "B": "あす",
+      "C": "みょうにち",
+      "D": "全部以上"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "此題標記為歧義題，不應計分。",
+      "options": {
+        "A": "不作正式判分。",
+        "B": "不作正式判分。",
+        "C": "不作正式判分。",
+        "D": "不作正式判分。"
+      },
+      "grammarPoint": "題目品質檢查",
+      "keyPoint": "明日有多個常見讀法，未指定語境。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "ambiguous",
+      "quality_check"
+    ],
+    "validity": "ambiguous",
+    "validityReason": "明日有多個常見讀法，未指定語境。"
+  },
+  {
+    "id": "N3-X-005",
+    "level": "N3",
+    "category": "grammar",
+    "subcategory": "題目品質測試",
+    "skill": "quality_check",
+    "difficulty": 3,
+    "question": "日本へ行く＿＿日本語を勉強します。",
+    "options": {
+      "A": "ために",
+      "B": "ように",
+      "C": "ので",
+      "D": "から"
+    },
+    "answer": "A",
+    "explanation": {
+      "correct": "此題標記為歧義題，不應計分。",
+      "options": {
+        "A": "不作正式判分。",
+        "B": "不作正式判分。",
+        "C": "不作正式判分。",
+        "D": "不作正式判分。"
+      },
+      "grammarPoint": "題目品質檢查",
+      "keyPoint": "缺少上下文，不能保證唯一答案。"
+    },
+    "translation": "",
+    "examples": [],
+    "tags": [
+      "ambiguous",
+      "quality_check"
+    ],
+    "validity": "ambiguous",
+    "validityReason": "缺少上下文，不能保證唯一答案。"
+  }
+]
