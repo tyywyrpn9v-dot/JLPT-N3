@@ -1,0 +1,2 @@
+請保留你現有 repository root 的 questions.json 及 knowledge.json。
+本 ZIP 只替換 index.html / style.css / app.js / README.md / assets/favicon.svg。
