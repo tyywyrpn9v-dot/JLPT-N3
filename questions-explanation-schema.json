@@ -1,0 +1,26 @@
+{
+  "explanation": {
+    "correct": {
+      "meaning": "該文法／詞彙的基本意思",
+      "connection": "接續規則，例如：名詞＋な＋ので",
+      "partOfSpeech": "詞性（適用於詞彙題等）",
+      "usage": "主要用法及使用條件",
+      "nuance": "語氣、語感或與近義表現的差異（如有）",
+      "why": "為甚麼本句使用它最自然",
+      "example": "日文例句",
+      "translation": "例句的繁體中文意思"
+    },
+    "options": {
+      "A": {
+        "meaning": "A 的意思",
+        "connection": "A 的接續",
+        "partOfSpeech": "A 的詞性",
+        "usage": "A 的一般用法",
+        "nuance": "A 的語感／限制",
+        "why": "為甚麼本題正確／不適合",
+        "example": "A 的例句",
+        "translation": "例句中文"
+      }
+    }
+  }
+}

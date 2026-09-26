@@ -1,0 +1,9 @@
+
+/* V2.3 教學式解析 */
+.teach-row{display:grid;grid-template-columns:5.5em 1fr;gap:.6em;margin:.65em 0;line-height:1.65}
+.teach-row>b{font-weight:700}
+.teach-example{margin:.9em 0;padding:.8em 1em;border-radius:10px;background:rgba(127,127,127,.08);line-height:1.7}
+.teach-example span{opacity:.85}
+.option-teach{padding:.75em 0;border-bottom:1px solid rgba(127,127,127,.2)}
+.option-teach:last-child{border-bottom:0}
+.option-teach h4{margin:.2em 0 .7em}
