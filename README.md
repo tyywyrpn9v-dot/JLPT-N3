@@ -1,50 +1,29 @@
-# 🎓 JLPT N3 日語水平考官
+# JLPT N3 日語水平考官 V2.3 完整題庫版
 
-GitHub Pages 可直接發布的純前端 JLPT N3 日語學習模擬器。
+## 本版更新
+- 有效題目由 54 題增加至 **100 題**。
+- 保留原有 5 題歧義測試題，不計入有效題目。
+- 現有題目全部加入結構化教學解析。
+- 每個選項可顯示：意思、接續／詞性、用法、語感、為甚麼正確／不適合、例句及繁體中文。
+- 保留跨模式／跨輪次去重、弱項加權、到期複習及舊 localStorage 兼容。
 
-## 檔案
+## 題目分布（100 題有效題）
+- 文法：50
+- 詞彙：20
+- 漢字：12
+- 語意：9
+- 用法：9
 
-```text
-JLPT-N3/
-├── index.html
-├── style.css
-├── app.js
-├── questions.json
-├── knowledge.json
-├── README.md
-└── assets/
-    └── favicon.svg
-```
+## 題庫設計
+所有新增題目為本專案自行編寫，不直接複製外部題目。題目會按概念組、難度及近期表現抽取；一輪仍然是 10 題。
 
-## 發布
+## 解析格式
+每題 `explanation` 採用：
+- `correct`：正確答案完整教學資料
+- `options`：A/B/C/D 各自的完整教學資料
 
-Repository 根目錄直接放置上述檔案。
+每個選項可包括：
+`meaning`、`connection`、`partOfSpeech`、`usage`、`nuance`、`why`、`example`、`translation`。
 
-GitHub → Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/ (root)`。
-
-不需要 Node、npm、Vite 或後端。
-
-## 重要
-
-本版本使用相對路徑：
-
-- `./style.css`
-- `./app.js`
-- `./questions.json`
-- `./assets/favicon.svg`
-
-因此適用於 GitHub Pages 的 Project Site，例如 `/JLPT-N3/`。
-
-`app.js` 會在 DOM 載入後註冊按鈕事件，再載入 `questions.json`。如果題庫載入失敗，頁面會顯示明確錯誤，而不是只留下無法操作的首頁。
-
-## 學習資料
-
-學習進度使用瀏覽器 localStorage 儲存，不需要帳戶、資料庫或遠端 AI API。
-
-能力指標 0–100 是本工具自己的學習指標，不是官方 JLPT 分數或合格預測。
-
-## 題庫
-
-保留現有 `questions.json` 即可。`validity: "ambiguous"` 的題目不會計入正式作答。
-
-建議持續人工審核題目，確保每題只有一個合理答案。
+## 注意
+`abilityScore` 是本地規則式學習指標，不是官方 JLPT 分數或官方能力預測。
